@@ -1,0 +1,30 @@
+<h1>Смена пароля</h1>
+
+<%= form_with model: current_user, url: :password do |form| %>
+
+    <% if form.object.errors.any? %>
+        <% form.object.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    <% end %>
+
+    <div>
+        <%= form.label :password_challenge, "Настоящий пароль" %>
+        <%= form.password_field :password_challenge %>
+    </div>
+
+    <div>
+        <%= form.label :password, "Новый пароль" %>
+        <%= form.password_field :password %>
+    </div>
+
+    <div>
+        <%= form.label :password_confirmation, "Подтвердите пароль" %>
+        <%= form.password_field :password_confirmation %>
+    </div>
+
+    <div>
+    <%= form.submit "Смена пароля" %>
+    </div>  
+     
+<% end %>

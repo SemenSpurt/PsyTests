@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PsyTests</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <div><%= notice %></div>
+    <div><%= alert %></div>
+
+    <% if user_signed_in? %>
+      <%= link_to "Сменить пароль", :edit_password %>
+      <%= button_to "Выход", :session, method: :delete %>
+    <% else %>
+      <%= link_to "Регистрация", :new_registration %>
+      <%= link_to "Вход", :new_session %>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<h1>Сбросить пароль</h1>
+
+<%= form_with model: @user, url: :password_reset do |form| %>
+
+    <div>
+      <%= form.label :email, "Электронная почта" %>
+        <%= form.email_field :email %>
+    </div>
+
+    <div>
+      <%= form.submit "Сбросить пароль" %>
+    </div>  
+<% end %>
